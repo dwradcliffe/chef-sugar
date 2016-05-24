@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-gem_version = run_context.cookbook_collection[cookbook_name].metadata.version
+gem_version = node['chef-sugar']['version'] || run_context.cookbook_collection[cookbook_name].metadata.version
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
   chef_gem 'chef-sugar' do
